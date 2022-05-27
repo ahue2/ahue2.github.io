@@ -22,6 +22,22 @@ async function activateXR() {
   const gl = canvas.getContext("webgl", {xrCompatible: true});
 
   // To be continued in upcoming steps.
+
+  // Set up the WebGLRenderer, which handles rendering to the session's base layer.
+const renderer = new THREE.WebGLRenderer({
+  alpha: true,
+  preserveDrawingBuffer: true,
+  canvas: canvas,
+  context: gl
+});
+renderer.autoClear = false;
+
+// The API directly updates the camera matrices.
+// Disable matrix auto updates so three.js doesn't attempt
+// to handle the matrices independently.
+const camera = new THREE.PerspectiveCamera();
+camera.matrixAutoUpdate = false;
+
 }
 
 const scene = new THREE.Scene();
