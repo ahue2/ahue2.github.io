@@ -63,6 +63,22 @@ canvas {
   margin-left: 0.2em;
 }
 
+.backup {
+  float: right;
+  text-decoration: none;
+}
+
+.backup:hover {
+  text-decoration: underline;
+}
+
+.backup::before {
+  display: inline-block;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+}
 /* Used for the 'barebones' samples */
 .barebones-button {
   font-family: "Karla", sans-serif;
