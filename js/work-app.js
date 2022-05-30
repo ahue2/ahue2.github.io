@@ -37,7 +37,7 @@ class App {
   activateXR = async () => {
     try {
       // Initialize a WebXR session using "immersive-ar".
-      this.xrSession = /* TODO */;
+      this.xrSession = await navigator.xr.requestSession("immersive-ar");
 
       // Create the canvas that will contain our camera's background and our virtual scene.
       this.createXRCanvas();
@@ -74,7 +74,7 @@ class App {
     this.setupThreeJs();
 
     // Setup an XRReferenceSpace using the "local" coordinate system.
-    this.localReferenceSpace = /* TODO */;
+    this.localReferenceSpace = await this.xrSession.requestReferenceSpace('local');
 
     // Start a rendering loop using this.onXRFrame.
     this.xrSession.requestAnimationFrame(this.onXRFrame);
@@ -85,7 +85,7 @@ class App {
    * Called with the time and XRPresentationFrame.
    */
   onXRFrame = (time, frame) => {
-    /** TODO draw the application */
+    this.xrSession.requestAnimationFrame(this.onXRFrame);
   }
 
   /**
